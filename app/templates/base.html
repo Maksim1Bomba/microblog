@@ -103,6 +103,7 @@
           });
           popups[i].addEventListener('show.bs.popover', async (ev) => {
             if (ev.target.popupLoaded) {
+              setTimeout(flask_moment_render_all, 0);
               return;
             }
             const response = await fetch('/user/' + ev.target.innerText.trim() + '/popup');
